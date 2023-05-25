@@ -1,0 +1,9 @@
+[GLOBAL]
+pants_version = "2.15.1"
+backend_packages = [
+    "pants.backend.shell",
+    "pants.backend.python",
+    "pants.backend.python.lint.black",
+    "pants.backend.python.lint.isort",
+    "pants.backend.docker"
+]
