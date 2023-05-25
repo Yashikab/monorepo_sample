@@ -24,11 +24,8 @@ sudo bash bin/pants_install.sh --bin-dir=/usr/local/bin
 
 2. ソースルートの設定
     - pythonなどは設定が必要(デフォルトはリポジトリのルート)
-
-- 複数のプロジェクトがトップレベルにある場合でも互いにインポートできてしまう。これを制限したい場合は dependenciesを設定する
-      -
-
-  - FYI: <https://www.pantsbuild.org/docs/source-roots#multiple-top-level-projects>
+    - 複数のプロジェクトがトップレベルにある場合でも互いにインポートできてしまう。これを制限したい場合は dependenciesを設定する
+    - FYI: <https://www.pantsbuild.org/docs/source-roots#multiple-top-level-projects>
 
 3. backendの有効化
     - <https://www.pantsbuild.org/docs/enabling-backends> のプラグインを入れることで機能が使えるようになる
@@ -52,3 +49,8 @@ sudo bash bin/pants_install.sh --bin-dir=/usr/local/bin
     /dist/
     /.pids
     ```
+
+5. BUILDファイルの作成
+    - `pants tailor ::` で初期のBUILDセットを作成できる。
+    - ソースコードがあると自動で検出してそのディレクトリ配下にBUILDファイルをおいてくれるみたい。
+    - CIでは `pants tailor --check ::` をすることでBUILDの置き忘れがないかをチェックすると良いらしい。
