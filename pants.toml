@@ -7,3 +7,10 @@ backend_packages = [
     "pants.backend.python.lint.isort",
     "pants.backend.docker"
 ]
+
+[python]
+enable_resolves = true
+
+[python.resolves]
+logic1 = "logic1.lock"
+logic2 = "logic2.lock"
