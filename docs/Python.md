@@ -30,6 +30,7 @@ python-default = "lockfile_path.lock"
 ```toml
 [python]
 enable_resolves = true
+python_default = "logic1"
 
 [python.resolves]
 logic1 = "logic1.lock"

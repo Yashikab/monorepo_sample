@@ -12,5 +12,4 @@ backend_packages = [
 enable_resolves = true
 
 [python.resolves]
-logic1 = "logic1.lock"
-logic2 = "logic2.lock"
+python-default="sample.lock"
