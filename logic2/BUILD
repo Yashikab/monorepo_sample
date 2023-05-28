@@ -7,3 +7,9 @@ poetry_requirements(
 )
 
 python_tests(name="tests", sources=["test_*.py"])
+
+docker_image(
+    name="docker",
+    repository="yashikab/pants_test",
+    image_tags = ["v1.0.0"]
+)
