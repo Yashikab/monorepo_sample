@@ -4,4 +4,4 @@ poetry_requirements(
     name="poetry",
 )
 
-python_tests(name="logic1_test", sources=["tests/test_*.py"])
+python_tests(name="test", sources=["tests/test_*.py"])
