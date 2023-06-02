@@ -53,10 +53,10 @@ TargetはBULDと名付けられたファイルに定義される。
   - testをしたときに2度独立に回ってしまう可能性がある
   - このファイルに関する依存関係を推測できなくなる可能性がある
 
-## dependencies field
+### dependencies field
 
 ターゲットの依存関係は、そのターゲットをビルドするときに含めるべきfirst party, third partyのrequirementsである。
 普通は dependency inferenceのおかげで、dependenciesフィールドは省略できる。これはpantsがimport文を読んで関係あるものにmapするからである。
 `pants dependencies path/to:target`で依存関係を把握できる
 
-## field default values
+## Options
