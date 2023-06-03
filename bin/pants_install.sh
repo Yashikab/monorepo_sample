@@ -176,7 +176,7 @@ Once installed, if you want to update your "pants" launcher binary, use
 EOF
 }
 
-bin_dir="${HOME}/bin"
+bin_dir="/usr/local/bin"
 base_name="pants"
 version="latest/download"
 while (($# > 0)); do
