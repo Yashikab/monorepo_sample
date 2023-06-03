@@ -60,3 +60,17 @@ TargetはBULDと名付けられたファイルに定義される。
 `pants dependencies path/to:target`で依存関係を把握できる
 
 ## Options
+
+### Option Scopes
+
+- Optionは名前付けされたスコープに分割される。
+- --levelなどの、システム横断のものはglobal scopeに属する
+- 他のpytestなどのオプションはサブシステムスコープに属する
+
+### Setting Options
+
+- コマンドライン中で指定する
+- 環境変数で指定する
+- pants.toml中で指定する
+
+###
