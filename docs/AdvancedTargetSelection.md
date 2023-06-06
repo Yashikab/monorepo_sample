@@ -6,3 +6,5 @@ pantsはgitを理解しているため、`--changed-since`を通して特定の�
 
 - uncommittedファイルのlintをするなら `pants --changed-since=HEAD lint` をすれば良い
 - --no-pantsdオプションをつけないと実行できないので、原因を探る <https://www.pantsbuild.org/v2.14/docs/troubleshooting#cache-or-pantsd-invalidation-issues>
+  - これはどうやらバグらしい。<https://github.com/pantsbuild/pants/issues/18563>
+  - 2.17.xでなおるとのこと
