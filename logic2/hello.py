@@ -1,11 +1,4 @@
-from typing import Dict
-
-import pandas as pd
-
-
-def generate_df(data: Dict[str, list]):
-    return pd.DataFrame(data)
-
+import module
 
 if __name__ == "__main__":
-    print(generate_df({"a": [1, 2], "b": [3, 4]}))
+    print(module.generate_df({"a": [1, 2], "b": [3, 4]}))
