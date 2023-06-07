@@ -12,3 +12,9 @@ pantsはgitを理解しているため、`--changed-since`を通して特定の�
 - 一方で関係する依存先が変更された場合も動くようにしたいこともある。その時は --changed-dependees=direct か --changed-dependees=transitiveを使う。
   - transitiveの場合関係あるものを推移的に探索
   - directだと直接関係あるもののみ探索する
+
+## `filter` options
+
+filterを使うことで、対象にしたものだけを操作することができる
+
+- `--filter-target-type` でtypeを指定できる
