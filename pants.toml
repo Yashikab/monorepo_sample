@@ -14,3 +14,9 @@ interpreter_constraints = [">=3.10"]
 
 [python.resolves]
 python-default="sample.lock"
+
+[source]
+root_patterns = [
+    '/logic1/',
+    '/logic2/'
+]
