@@ -10,3 +10,5 @@ pantsはgitを理解しているため、`--changed-since`を通して特定の�
   - 2.17.xでなおるとのこと -> アップグレードで対応した
 - --changed-sinceはデフォルトではファイルディレクトリが変更されたときのみ動く。
 - 一方で関係する依存先が変更された場合も動くようにしたいこともある。その時は --changed-dependees=direct か --changed-dependees=transitiveを使う。
+  - transitiveの場合関係あるものを推移的に探索
+  - directだと直接関係あるもののみ探索する

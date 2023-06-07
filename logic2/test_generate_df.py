@@ -1,5 +1,6 @@
 from module import generate_df
 
+
 def test_generate_df():
     target = {"a": [1, 2]}
     actual_df = generate_df(target)
