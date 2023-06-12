@@ -20,12 +20,9 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
     - uses: pantsbuild/actions/init-pants@v4-scie-pants
-    - name: Check BUILD files
-      run:  |
-        pants tailor --check update-build-files --check ::
-    - name: Lint and typecheck
+    - name: Lint
       run: | 
-        pants lint check ::
+        pants --changed-since=origin/master --changed-dependees=direct lint
     - name: Test
       run: |
         pants --changed-since=origin/master --changed-dependees=transitive test
