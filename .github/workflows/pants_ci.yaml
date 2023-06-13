@@ -22,10 +22,10 @@ jobs:
     - uses: pantsbuild/actions/init-pants@v4-scie-pants
     - name: Lint
       run: | 
-        pants --changed-since=origin/master lint
+        pants lint ::
     - name: Test
       run: |
-        pants --changed-since=origin/master --changed-dependees=transitive test
+        pants test ::
     - name: Upload pants log
       uses: actions/upload-artifact@v3
       with:
