@@ -80,6 +80,7 @@ inputs:
     default: "github.com"
 
 runs:
+  on: [push, pull_request]
   using: "composite"
   steps:
     - name: Ensure the Pants launcher binary
