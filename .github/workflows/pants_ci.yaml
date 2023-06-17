@@ -10,8 +10,7 @@ on: [push, pull_request]
 jobs:
   build:
     name: Perform CI Checks
-    needs: org-check
-    runs-on: ubuntu-20.04
+    uns-on: ubuntu-20.04
     strategy:
       matrix:
         python-version: [3.9]
