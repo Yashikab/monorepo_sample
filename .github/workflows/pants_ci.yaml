@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        python-version: [3.10]
+        python-version: [3.9]
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-python@v4
@@ -39,6 +39,7 @@ jobs:
         # but will cause the cache entry to grow without bound over time.
         # See https://pants.readme.io/docs/using-pants-in-ci for tips on how to periodically clean it up.
         # Alternatively you change gha-cache-key to ignore old caches.
+        setup-python-for-plugins: 'true'
     - name: Lint and typecheck
       run: | 
         pants lint ::
