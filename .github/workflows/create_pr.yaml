@@ -1,0 +1,17 @@
+name: Create Pull Request
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  create_pr:
+    name: Create Release PR
+    runs-on: ubuntu-20.04
+    steps:
+    - name: create release branch
+      run: |
+        git checkout -b release_${{ github.github_sha }}
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
