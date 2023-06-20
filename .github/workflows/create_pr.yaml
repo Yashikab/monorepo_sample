@@ -18,7 +18,6 @@ jobs:
     - name: Set Variables
       id: set-variable
       run: |
-        base_branch=${{ github.base_ref }}
         short_sha=$(git rev-parse --short HEAD)
         branch_name=release_${short_sha}
         echo "short_sha=$short_sha" >> "$GITHUB_OUTPUT"
@@ -32,6 +31,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.TOKEN_FOR_ACTION }}
     - name: create PR
       run: |
-        gh pr create -B ${{ steps.set-variable.outputs.base_branch }} -d -t "[Auto Generate] Release v_x.x.x" -l "release"
+        gh pr create -d -t "[Auto Generate] Release v_x.x.x" -l "release"
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN_FOR_ACTION }}
