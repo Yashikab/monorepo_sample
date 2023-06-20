@@ -20,5 +20,6 @@ jobs:
         short_sha=$(git rev-parse --short HEAD)
         git checkout -b release_${short_sha}
         git commit --allow-empty -m "Create Relese Branch"
+        git push
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN_FOR_ACTION }}
