@@ -1,5 +1,4 @@
 def say_hello(msg):
-    # add comment
     return f"hello, {msg}"
 
 
