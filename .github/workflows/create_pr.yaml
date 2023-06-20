@@ -17,4 +17,4 @@ jobs:
         git checkout -b release_${short_sha}
         git commit --allow-empty -m "Create Relese Branch"
       env:
-        GITHUB_TOKEN: ${{ github.token }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
