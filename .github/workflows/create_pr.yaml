@@ -10,8 +10,9 @@ jobs:
     name: Create Release PR
     runs-on: ubuntu-20.04
     steps:
+    - uses: actions/checkout@v3
     - name: create release branch
       run: |
-        git checkout -b release_${{ github.github_sha }}
+        git checkout -b release_${{ github.sha }}
       env:
         GITHUB_TOKEN: ${{ github.token }}
