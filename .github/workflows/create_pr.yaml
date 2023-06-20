@@ -18,8 +18,9 @@ jobs:
     - name: create release branch
       run: |
         short_sha=$(git rev-parse --short HEAD)
-        git checkout -b release_${short_sha}
+        branch_name=release_${short_sha}
+        git checkout -b ${branch_name}
         git commit --allow-empty -m "Create Relese Branch"
-        git push
+        git push -u origin ${branch_name}
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN_FOR_ACTION }}
