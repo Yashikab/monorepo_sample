@@ -29,8 +29,12 @@ jobs:
         git push -u origin ${{ steps.set-variable.outputs.release_branch }}
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN_FOR_ACTION }}
+    - name: "Generate release changelog"
+      uses: heinrichreimer/github-changelog-generator-action@v2.3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }} 
     - name: create PR
       run: |
-        gh pr create -t "[Auto Generate] Release v_x.x.x" -d -b ""
+        gh pr create -t "[Auto Generate] Release v_x.x.x" -d -b $(cat CHANGELOG.md)
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN_FOR_ACTION }}
