@@ -35,6 +35,6 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }} 
     - name: create PR
       run: |
-        gh pr create -t "[Auto Generate] Release v_x.x.x" -d -b $(cat CHANGELOG.md)
+        gh pr create -t "[Auto Generate] Release v_x.x.x" -d -b "$(cat CHANGELOG.md)"
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN_FOR_ACTION }}
