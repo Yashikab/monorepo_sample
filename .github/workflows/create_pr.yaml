@@ -15,12 +15,23 @@ jobs:
       run: |
         git config user.name "$(git --no-pager log --format=format:'%an' -n 1)"
         git config user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
+    - name: Set Variables
+      id: set-variable
+      run: |
+        base_branch=${{ github.base_ref }}
+        short_sha$(git rev-parse --short HEAD)
+        branch_name=release_${short_sha}
+        echo "short_sha=$short_sha" >> "$GITHUB_OUTPUT"
+        echo "release_branch=${branch_name}" >> "$GITHUB_OUTPUT"
     - name: create release branch
       run: |
-        short_sha=$(git rev-parse --short HEAD)
-        branch_name=release_${short_sha}
-        git checkout -b ${branch_name}
+        git checkout -b ${{ steps.set-variable.outputs.release_branch }}
         git commit --allow-empty -m "Create Relese Branch"
-        git push -u origin ${branch_name}
+        git push -u origin ${{ steps.set-variable.outputs.release_branch }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN_FOR_ACTION }}
+    - name: create PR
+      run: |
+        gh pr create -B ${{ steps.set-variable.outputs.base_branch }} -d -t "[Auto Generate] Release v_x.x.x" -l "release"
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN_FOR_ACTION }}
