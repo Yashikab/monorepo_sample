@@ -12,4 +12,5 @@ jobs:
       run: |
         echo ${{ github.event.pull_request}}
     - name: confirm push
+      run: |
         echo ${{ github.event.push }}
