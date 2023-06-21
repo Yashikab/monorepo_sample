@@ -1,9 +1,9 @@
 name: Create Pull Request
 
 on:
-  push:
-    branches:
-      - master
+  pull_request:
+    types:
+      - closed
 
 jobs:
   create_pr:
