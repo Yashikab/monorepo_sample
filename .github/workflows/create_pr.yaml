@@ -1,13 +1,13 @@
 name: Create Pull Request
 
 on:
-  push:
-    branches:
-      - master
+  pull_request:
+    types:
+      - closed
 
 jobs:
   create_pr:
-    if: (github.event.pull_request.merged == true) && (!contains(github.event.pull_request.head_ref, 'release'))
+    if: (github.event.pull_request.merged == true) && (!contains(github.ref, 'release'))
     name: Create Release PR
     runs-on: ubuntu-20.04
     steps:
