@@ -13,7 +13,7 @@ jobs:
     - name: Set Variables
       id: set-variable
       run: |
-        git checkout ${{ github.base_ref }}
+        git checkout origin ${{ github.base_ref }}
         base_version=$(cat versions)
         git checkout ${{ github.head_ref }}
         head_version=$(cat versions)
