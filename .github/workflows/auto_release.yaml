@@ -1,0 +1,45 @@
+name: On Release PR Check
+
+on:
+  pull_request:
+
+jobs:
+  check_version_change:
+    if: (contains(github.event.pull_request.head.ref, 'release') == true)
+    name: Check Version Change
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set Variables
+      id: set-variable
+      run: |
+        git checkout ${{ github.base_ref }}
+        base_version=$(cat versions)
+        git checkout ${{ github.head_ref }}
+        head_version=$(cat versions)
+
+        echo "base_version=${base_version}" >> "$GITHUB_OUTPUT"
+        echo "head_version=${head_version}" >> "$GITHUB_OUTPUT"
+    - name: Check Version Changed
+      run: |
+        if [${{ steps.set-variable.outputs.base_version }} >= ${{ steps.set-variable.outputs.head_version }}]; then
+          echo "version file must be updated."
+          exit 1
+        fi
+
+  auto_release:
+    if: (github.event.pull_request.merged == true) && (contains(github.event.pull_request.head.ref, 'release') == true)
+    needs: check_version_change
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set Variables
+        id: set-variable
+        run: |
+          version=$(cat versions)
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
+      - name: Automatic Release
+        run: |
+          gh release create ${{ steps.set-variable.outputs.version }} --generate-notes
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_FOR_ACTION }}
