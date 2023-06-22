@@ -9,10 +9,11 @@ jobs:
     name: Check Version Change
     runs-on: ubuntu-20.04
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set Variables
       id: set-variable
       run: |
+        git fetch
         git checkout ${{ github.base_ref }}
         base_version=$(cat versions)
         git checkout ${{ github.head_ref }}
