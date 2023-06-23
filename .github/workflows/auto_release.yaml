@@ -2,9 +2,6 @@ name: On Release PR Check
 
 on:
   pull_request:
-    types:
-      - edited
-      - closed
 
 jobs:
   check_version_change:
