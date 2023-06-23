@@ -20,7 +20,7 @@ jobs:
       id: set-variable
       run: |
         short_sha=$(git rev-parse --short HEAD)
-        branch_name=release_${short_sha}
+        branch_name=release/${short_sha}
         echo "short_sha=$short_sha" >> "$GITHUB_OUTPUT"
         echo "release_branch=${branch_name}" >> "$GITHUB_OUTPUT"
     - name: create release branch
