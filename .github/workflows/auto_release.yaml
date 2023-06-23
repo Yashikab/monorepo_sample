@@ -3,12 +3,13 @@ name: On Release PR Check
 on:
   pull_request:
     types:
-      - push
+      - opened
+      - reopened
+      - synchronize
       - closed
-
 jobs:
   check_version_change:
-    if: (startsWith(github.event.pull_request.head.ref, 'release') == true)
+    if: (startsWith(github.event.pull_request.head.ref, 'release/') == true)
     name: Check Version Change
     runs-on: ubuntu-20.04
     steps:
@@ -37,7 +38,7 @@ jobs:
         fi
 
   auto_release:
-    if: (github.event.pull_request.merged == true) && (contains(github.event.pull_request.head.ref, 'release') == true)
+    if: (github.event.pull_request.merged == true) && (startsWith(github.event.pull_request.head.ref, 'release/') == true)
     needs: check_version_change
     runs-on: ubuntu-20.04
     steps:
