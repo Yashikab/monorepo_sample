@@ -10,10 +10,11 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
     - name: Set Variables
       id: set-variable
       run: |
-        git fetch
         git checkout ${{ github.base_ref }}
         base_version=$(cat versions)
         git checkout ${{ github.head_ref }}
@@ -23,7 +24,7 @@ jobs:
         echo "head_version=${head_version}" >> "$GITHUB_OUTPUT"
     - name: Check Version Changed
       run: |
-        if ["${{ steps.set-variable.outputs.base_version }}" >= "${{ steps.set-variable.outputs.head_version }}"]; then
+        if [ "${{ steps.set-variable.outputs.base_version }}" >= "${{ steps.set-variable.outputs.head_version }}" ]; then
           echo "version file must be updated."
           exit 1
         fi
