@@ -2,10 +2,13 @@ name: On Release PR Check
 
 on:
   pull_request:
+    types:
+      - push
+      - closed
 
 jobs:
   check_version_change:
-    if: (contains(github.event.pull_request.head.ref, 'release') == true)
+    if: (startsWith(github.event.pull_request.head.ref, 'release') == true)
     name: Check Version Change
     runs-on: ubuntu-20.04
     steps:
