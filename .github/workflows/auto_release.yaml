@@ -2,7 +2,11 @@ name: On Release PR Check
 
 on:
   pull_request:
-
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
 jobs:
   check_version_change:
     if: (startsWith(github.event.pull_request.head.ref, 'release/') == true)
