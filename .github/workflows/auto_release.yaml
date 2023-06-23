@@ -24,7 +24,7 @@ jobs:
         echo "head_version=${head_version}" >> "$GITHUB_OUTPUT"
     - name: Check Version Changed
       run: |
-        if [ "${{ steps.set-variable.outputs.base_version }}" >= "${{ steps.set-variable.outputs.head_version }}" ]; then
+        if [[ "${{ steps.set-variable.outputs.base_version }}" >= "${{ steps.set-variable.outputs.head_version }}" ]]; then
           echo "version file must be updated."
           exit 1
         fi
