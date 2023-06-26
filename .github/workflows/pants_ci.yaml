@@ -50,11 +50,11 @@ jobs:
     - name: Lint and typecheck
       run: | 
         base_branch=${{ steps.set-variables.outputs.base_branch }}
-        pants --changed-since=${base_branch} --changed-dependents=transitive lint
+        pants --changed-since=origin/${base_branch} --changed-dependents=transitive lint
     - name: Test
       run: |
         base_branch=${{ steps.set-variables.outputs.base_branch }}
-        pants --changed-since=${base_branch} --changed-dependents=transitive test
+        pants --changed-since=origin/${base_branch} --changed-dependents=transitive test
     # - name: Package / Run
     #   run: |
     #     # We also smoke test that our release process will work by running `package`.
