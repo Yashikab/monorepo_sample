@@ -1,4 +1,4 @@
-from hello import double_element_for_dict
+from logic2.hello import double_element_for_dict
 
 
 def test_double_df():
