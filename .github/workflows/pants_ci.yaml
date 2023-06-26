@@ -6,7 +6,7 @@
 name: Pants
 
 on:
-  push:
+  pull_request:
 
 jobs:
   build:
@@ -41,6 +41,10 @@ jobs:
         # See https://pants.readme.io/docs/using-pants-in-ci for tips on how to periodically clean it up.
         # Alternatively you change gha-cache-key to ignore old caches.
         setup-python-for-plugins: 'true'
+    - name: Set Variables
+      id: set-variables
+      run: |
+        echo "${{ toJson(github.event) }}"
     - name: Lint and typecheck
       run: | 
         pants lint ::
