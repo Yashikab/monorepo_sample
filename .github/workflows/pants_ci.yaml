@@ -44,7 +44,7 @@ jobs:
     - name: Set Variables
       id: set-variables
       run: |
-        echo "base_branch= ${{ github.event.pull_request.base.ref }}" >> $GITHUB_OUTPUT
+        echo "base_branch=${{ github.event.pull_request.base.ref }}" >> $GITHUB_OUTPUT
     - name: Lint and typecheck
       run: | 
         base_branch=${{ steps.set-variables.outputs.base_branch }}
