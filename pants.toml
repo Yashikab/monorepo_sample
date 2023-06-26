@@ -17,6 +17,6 @@ python-default="sample.lock"
 
 [source]
 root_patterns = [
-    '/logic1/',
-    '/logic2/'
+    'logic1/',
+    'logic2/'
 ]

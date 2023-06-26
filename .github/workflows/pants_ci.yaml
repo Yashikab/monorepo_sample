@@ -6,7 +6,7 @@
 name: Pants
 
 on:
-  push:
+  pull_request:
 
 jobs:
   build:
@@ -17,6 +17,8 @@ jobs:
         python-version: ["3.10"]
     steps:
     - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
     - uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
@@ -41,12 +43,18 @@ jobs:
         # See https://pants.readme.io/docs/using-pants-in-ci for tips on how to periodically clean it up.
         # Alternatively you change gha-cache-key to ignore old caches.
         setup-python-for-plugins: 'true'
+    - name: Set Variables
+      id: set-variables
+      run: |
+        echo "base_branch=${{ github.event.pull_request.base.ref }}" >> $GITHUB_OUTPUT
     - name: Lint and typecheck
       run: | 
-        pants lint ::
+        base_branch=${{ steps.set-variables.outputs.base_branch }}
+        pants --changed-since=origin/${base_branch} --changed-dependents=transitive lint
     - name: Test
       run: |
-        pants test ::
+        base_branch=${{ steps.set-variables.outputs.base_branch }}
+        pants --changed-since=origin/${base_branch} --changed-dependents=transitive test
     # - name: Package / Run
     #   run: |
     #     # We also smoke test that our release process will work by running `package`.
