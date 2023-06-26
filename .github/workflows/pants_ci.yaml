@@ -44,13 +44,15 @@ jobs:
     - name: Set Variables
       id: set-variables
       run: |
-        echo "${{ toJson(github.event) }}"
+        echo "base_branch= ${{ github.event.pull_request.base.ref }}" >> $GITHUB_OUTPUT
     - name: Lint and typecheck
       run: | 
-        pants lint ::
+        base_branch=${{ steps.set-variables.outputs.base_branch }}
+        pants --changed-since=${base_branch} --changed-dependents=transitive lint
     - name: Test
       run: |
-        pants test ::
+        base_branch=${{ steps.set-variables.outputs.base_branch }}
+        pants --changed-since=${base_branch} --changed-dependents=transitive test
     # - name: Package / Run
     #   run: |
     #     # We also smoke test that our release process will work by running `package`.
