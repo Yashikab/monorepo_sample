@@ -8,7 +8,9 @@
 //   "valid_for_interpreter_constraints": [
 //     "CPython==3.10.*"
 //   ],
-//   "generated_with_requirements": [],
+//   "generated_with_requirements": [
+//     "numpy==1.26.3"
+//   ],
 //   "manylinux": "manylinux2014",
 //   "requirement_constraints": [],
 //   "only_binary": [],
@@ -22,12 +24,63 @@
   "allow_wheels": true,
   "build_isolation": true,
   "constraints": [],
-  "locked_resolves": [],
+  "locked_resolves": [
+    {
+      "locked_requirements": [
+        {
+          "artifacts": [
+            {
+              "algorithm": "sha256",
+              "hash": "b1240f767f69d7c4c8a29adde2310b871153df9b26b5cb2b54a561ac85146485",
+              "url": "https://files.pythonhosted.org/packages/d4/1c/839e2308aa3b2dc52e3ae0443b5a0d3971d1f096f76dab0cf8424af157cd/numpy-1.26.3-cp310-cp310-musllinux_1_1_x86_64.whl"
+            },
+            {
+              "algorithm": "sha256",
+              "hash": "806dd64230dbbfaca8a27faa64e2f414bf1c6622ab78cc4264f7f5f028fee3bf",
+              "url": "https://files.pythonhosted.org/packages/33/47/fc483df0b7ddeee987b6ff146c879d3556fcea82cc9aa4203d16e5871c62/numpy-1.26.3-cp310-cp310-macosx_10_9_x86_64.whl"
+            },
+            {
+              "algorithm": "sha256",
+              "hash": "6d45b3ec2faed4baca41c76617fcdcfa4f684ff7a151ce6fc78ad3b6e85af0a6",
+              "url": "https://files.pythonhosted.org/packages/37/ec/ef1623be30884230e9fbc689bc1ad4f096b6155b54ddbc1b8726333411c0/numpy-1.26.3-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl"
+            },
+            {
+              "algorithm": "sha256",
+              "hash": "211ddd1e94817ed2d175b60b6374120244a4dd2287f4ece45d49228b4d529178",
+              "url": "https://files.pythonhosted.org/packages/9b/a5/35fde0de93145e4cec0543ce4413b4a96769a6f9714aa1c6cfa29011a4b9/numpy-1.26.3-cp310-cp310-musllinux_1_1_aarch64.whl"
+            },
+            {
+              "algorithm": "sha256",
+              "hash": "02f98011ba4ab17f46f80f7f8f1c291ee7d855fcef0a5a98db80767a468c85cd",
+              "url": "https://files.pythonhosted.org/packages/a0/8a/2bd4712558ba18a31b52873bc2ecf473a7d264d10f3d16be4f83d7bf31a7/numpy-1.26.3-cp310-cp310-macosx_11_0_arm64.whl"
+            },
+            {
+              "algorithm": "sha256",
+              "hash": "bdd2b45bf079d9ad90377048e2747a0c82351989a2165821f0c96831b4a2a54b",
+              "url": "https://files.pythonhosted.org/packages/a5/37/d1453c9ff4f7630e68ec036c6fb56ba0d7c769daa8a4083cb4ef8ee45995/numpy-1.26.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+            },
+            {
+              "algorithm": "sha256",
+              "hash": "697df43e2b6310ecc9d95f05d5ef20eacc09c7c4ecc9da3f235d39e71b7da1e4",
+              "url": "https://files.pythonhosted.org/packages/d0/b0/13e2b50c95bfc1d5ee04925eb5c105726c838f922d0aaddd57b7c8be0f8b/numpy-1.26.3.tar.gz"
+            }
+          ],
+          "project_name": "numpy",
+          "requires_dists": [],
+          "requires_python": ">=3.9",
+          "version": "1.26.3"
+        }
+      ],
+      "platform_tag": null
+    }
+  ],
   "path_mappings": {},
   "pex_version": "2.1.137",
   "pip_version": "23.1.2",
   "prefer_older_binary": false,
-  "requirements": [],
+  "requirements": [
+    "numpy==1.26.3"
+  ],
   "requires_python": [
     "==3.10.*"
   ],

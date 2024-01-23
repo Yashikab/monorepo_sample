@@ -1,3 +1,7 @@
 import numpy as np
 
-print(np.sum([1 for i in range(10)]))
+def main():
+    print(np.sum([i for i in range(15)]))
+
+if __name__ == "__main__":
+    main()
