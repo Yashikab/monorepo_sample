@@ -9,7 +9,7 @@
 //     "CPython==3.10.*"
 //   ],
 //   "generated_with_requirements": [
-//     "numpy==1.26.3"
+//     "numpy<2.0.0,>=1.26.3"
 //   ],
 //   "manylinux": "manylinux2014",
 //   "requirement_constraints": [],
@@ -79,7 +79,7 @@
   "pip_version": "23.1.2",
   "prefer_older_binary": false,
   "requirements": [
-    "numpy==1.26.3"
+    "numpy<2.0.0,>=1.26.3"
   ],
   "requires_python": [
     "==3.10.*"
