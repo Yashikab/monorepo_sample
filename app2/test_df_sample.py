@@ -1,5 +1,5 @@
-from df_sample import dict_to_df
 import pandas as pd
+from df_sample import dict_to_df
 from pandas.testing import assert_frame_equal
 
 
